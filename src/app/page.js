@@ -18,13 +18,14 @@ export default function Home() {
     const savedProgress = localStorage.getItem('progress');
     const savedStatus = localStorage.getItem('status');
 
-    if (savedTasks) setTasks(JSON.parse(savedTasks));
-    if (savedProgress) setProgress(Number(savedProgress));
-    if (savedStatus) setStatus(savedStatus);
-
-    if (savedStatus == 'In Progress') {
-      fetchTasks();
+    if (savedTasks) {
+      setTasks(JSON.parse(savedTasks));
+      setProgress(Number(savedProgress));
+      setStatus(savedStatus);
+    } else {
+      fetchTasks(); // Call fetchTasks if there's nothing in localStorage
     }
+    
   }, []);
 
   useEffect(() => {
