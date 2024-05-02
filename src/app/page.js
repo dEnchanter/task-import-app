@@ -22,7 +22,7 @@ export default function Home() {
     if (savedProgress) setProgress(Number(savedProgress));
     if (savedStatus) setStatus(savedStatus);
 
-    if (!savedTasks || savedStatus !== 'Completed') {
+    if (savedStatus == 'In Progress') {
       fetchTasks();
     }
   }, []);
